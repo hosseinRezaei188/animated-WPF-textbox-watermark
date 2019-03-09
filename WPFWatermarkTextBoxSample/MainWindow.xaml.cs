@@ -23,5 +23,10 @@ namespace WPFWatermarkTextBoxSample
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(txt1.TextProp);
+        }
     }
 }

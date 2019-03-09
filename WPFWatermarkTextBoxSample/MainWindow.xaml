@@ -4,11 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFWaterMarkTextBox;assembly=WPFWaterMarkTextBox"
+        xmlns:local1="clr-namespace:WPFWatermarkTextBoxSample"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local1:ViewModel></local1:ViewModel>
+    </Window.DataContext>
     <StackPanel VerticalAlignment="Center">
-        <local:TextBoxLabelHrzs Width="350" Margin="0,5,0,0"/>
-        <local:TextBoxLabelHrzs Width="350" Margin="0,5,0,0"/>
-        <local:TextBoxLabelHrzs Width="350" Margin="0,5,0,0"/>
+        <local:TextBoxLabelHrzs  Name="txt1" Watermark="{StaticResource name}" TextProp="{Binding CurrentModel.Name,Mode=OneWayToSource}"  Width="350" Margin="0,5,0,0"/>
+        <local:TextBoxLabelHrzs  Name="txt2" Watermark="{StaticResource family}" TextProp="{Binding CurrentModel.Family,Mode=OneWayToSource}" Width="350" Margin="0,5,0,0"/>
+        <local:TextBoxLabelHrzs  Name="txt3" Watermark="{StaticResource address}"  TextProp="{Binding CurrentModel.Address,Mode=OneWayToSource}" Width="350" Margin="0,5,0,0"/>
+        <Button Content="Run"  Command="{Binding ClickCommand}" HorizontalAlignment="Center" MinWidth="150"/>
     </StackPanel>
 </Window>
